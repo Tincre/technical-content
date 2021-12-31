@@ -1,0 +1,26 @@
+[tool.black]
+line-length = 79
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | htmlcov
+  | \.pytest_cache
+)/
+'''
+
+[tool.poetry]
+name = 'digging-into-python-testing'
+description = "A brief review of testing in Python and general principles for success"
+authors = ["Ella (Xinxin) Li @ellalixx", "Jason R. Stevens, CFA. @thinkjrs", ]
+
+[tool.pytest.ini_options]
+addopts = '-vv --cov=./ --cov-branch --cov-report term-missing'
