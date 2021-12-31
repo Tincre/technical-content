@@ -1,6 +1,7 @@
 import reprice
 import pandas as pd
 import multiply
+import numpy as np
 
 
 def test_reprice(reprice_dataframe):
@@ -8,6 +9,15 @@ def test_reprice(reprice_dataframe):
     assert isinstance(ndf, pd.DataFrame)
     assert ndf["Y"][0] == reprice_dataframe["Y"][0]
     assert not reprice.reprice(ndf, 1, inplace=True)
+
+
+def test__propogate_initial_value(reprice_dataframe):
+    """Remember to include the previous pieces which have been tested since they are related."""
+    reprice._get_returns(reprice_dataframe)
+    reprice._set_initial_value(reprice_dataframe, 100, "reprice")
+    reprice._propogate_initial_value(reprice_dataframe, "reprice")
+    ind = np.random.randint(0, len(reprice_dataframe))
+    assert reprice_dataframe["reprice"][ind] > 0
 
 
 def test_multiply():
