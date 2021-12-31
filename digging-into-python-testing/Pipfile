@@ -1,0 +1,24 @@
+# -----------------------------------------------------------------------------
+# The default Musicfox Pipfile.
+# 
+# This should be customized per application requirements; uncomment or add
+# those packages required. This should be used for datascience, web, and
+# most other Python-based projects, replacing raw venv or anaconda usage.
+# -----------------------------------------------------------------------------
+
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[dev-packages]
+black = "==21.12b0"
+pytest = "*"
+pytest-cov = "*"
+
+[packages]
+numpy = "*"
+pandas = "*"
+
+[requires]
+python_version = "3.9.9"
